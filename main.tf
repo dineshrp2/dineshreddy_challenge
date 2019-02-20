@@ -229,7 +229,7 @@ resource "aws_default_security_group" "hello-world" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.10.0.0/16"]
   }
 
   # HTTP access from anywhere
