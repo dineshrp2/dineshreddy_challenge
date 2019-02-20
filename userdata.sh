@@ -1,0 +1,67 @@
+#!/bin/bash
+yum install httpd mod_ssl -y
+systemctl enable httpd 
+echo "<html>
+<head>
+<title>Hello World</title>
+</head>
+<body>
+<h1>Hello World!</h1>
+</body>
+</html>" > /var/www/html/index.html
+
+echo "-----BEGIN CERTIFICATE-----
+MIID3zCCAsegAwIBAgIJAP1nDTfKWbGAMA0GCSqGSIb3DQEBCwUAMIGFMQswCQYD
+VQQGEwJ1czENMAsGA1UECAwEb2hpbzESMBAGA1UEBwwJY2xldmVsYW5kMRQwEgYD
+VQQKDAtoZWxsby13b3JsZDEPMA0GA1UECwwGRGV2T3BzMRQwEgYDVQQDDAtoZWxs
+by13b3JsZDEWMBQGCSqGSIb3DQEJARYHZGVmYXVsdDAeFw0xOTAyMTkwMTUxNDRa
+Fw0yMDAyMTkwMTUxNDRaMIGFMQswCQYDVQQGEwJ1czENMAsGA1UECAwEb2hpbzES
+MBAGA1UEBwwJY2xldmVsYW5kMRQwEgYDVQQKDAtoZWxsby13b3JsZDEPMA0GA1UE
+CwwGRGV2T3BzMRQwEgYDVQQDDAtoZWxsby13b3JsZDEWMBQGCSqGSIb3DQEJARYH
+ZGVmYXVsdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN+AQ0ND7D/w
+o6pylKx010r2JzwD+WPCfzvtgqI2ryiE9kr8eOa5qnQM2IbGqD3UlgO3UeKg2G4C
+190551Y/cn9Npb8ajBIXrX2pmt43pkRi5nTVmkDFzUKyAmt/1mKw7eJ7saF23y3w
+cbmQM7Vvo7BQ3/6+eniFPw8Dor6jDAFnJFgg+wt3jYbxFgT/+URMulZbmxNT6mYH
+4K5SDNcZ0V/lyES6BiYhhoM8G2RC2/r23aVxFLI5JxlTcY0NaklCbW3tYGPb9V6t
+qwQEEUd1JFHOIG5RhOWYoYcnCZQjgJRdWPMN4uWrUprfLfviOhNmM9r7C0Ortmsq
+afF1D/Ls7ekCAwEAAaNQME4wHQYDVR0OBBYEFLp0kWBA7bgDo6vrMjCe/rBnBb2o
+MB8GA1UdIwQYMBaAFLp0kWBA7bgDo6vrMjCe/rBnBb2oMAwGA1UdEwQFMAMBAf8w
+DQYJKoZIhvcNAQELBQADggEBAF0WjkscnVxy4McI7xBYNSVMousj4ZnFjkB5eYe2
+jUjSsC4Un++mzPzPofZ8ntxOckegmzh4qJ6YOWqZXdlED+0nEzclBEKVNxmSxOOU
+NDDEqLANKaKMnndpxvU/ufI3IUaeZ7wRm6qcMUVguZqw0YkQhoRAQzBzXXO4P2pD
+pWHL79vsszX4q0Uhuj4wkO59XYvOtQ5SYY9S6XHvPi32X4esdVI9lfLVMjwadDL9
+vazXVMnMJ8FBghV93uDQPyi3Ueph9reafh6jg2d5pexYpAea47ny/v76bZH5kgg9
+Sz3EIZpiSjNe8ck2muiWPWHdHOvTJxWmQ/ZDCjM+42ydKlQ=
+-----END CERTIFICATE-----" >  /etc/pki/tls/certs/hello-world.crt
+echo "-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEA34BDQ0PsP/CjqnKUrHTXSvYnPAP5Y8J/O+2CojavKIT2Svx4
+5rmqdAzYhsaoPdSWA7dR4qDYbgLX3TnnVj9yf02lvxqMEhetfama3jemRGLmdNWa
+QMXNQrICa3/WYrDt4nuxoXbfLfBxuZAztW+jsFDf/r56eIU/DwOivqMMAWckWCD7
+C3eNhvEWBP/5REy6VlubE1PqZgfgrlIM1xnRX+XIRLoGJiGGgzwbZELb+vbdpXEU
+sjknGVNxjQ1qSUJtbe1gY9v1Xq2rBAQRR3UkUc4gblGE5ZihhycJlCOAlF1Y8w3i
+5atSmt8t++I6E2Yz2vsLQ6u2aypp8XUP8uzt6QIDAQABAoIBAE4hSmIzVl0rxCsL
+jwmSdsiPsDt8sCu9jDjo2GfYcfbaNDcWdzVA5mNXMkI7JAkpTZ/S798nl0Et4URG
+v6YY2+/AtxZNM3YHrPBm3+qazZbOc/2Xxiqqewy7qbjmoY0yiJZJ41isc2xdx4O0
+8z6T3kb+nq8w6yNCgT7AaJ335XR/cFSiFLmCUfXeRWq075TkkIeQD7kYnH9vvCvi
+b29CX4Lo3nvB9TDoJ3vMCA6NrNeUC8aVZ/dfeNpDA4ur5EKtaOX1qn6b2q7gSs4z
+GpCneGP9gmAEvEFd98DspI67arV3OMY0bdplCmOh+m/unnK9u7Zfv59nlk+xGWkF
+YN5+AQECgYEA/s4FIuSrvcNSiLK/LWGubMKOEeSY85n3P2MTkw5Mxf/uN1KSxeVy
+KsB0JcfsCBgtwpQPZAeFBd2IpXkDLhzrteWTDfZWclrEXTzENenkTa5gNPj2Xj7N
+78G0vkuh29OMgf1Uc4PmFNRG5aDlBJXul41cmr96IvuVEO4j4uNqj1ECgYEA4Iym
+4WLP4ojc7ya8q4EiJGkLP2Adyvi23Hn9bWgliQC22iyiSky88R1/kyjpwJXUk+A5
+dPzzpCcqih7oVVp4J53SwIM3xRdSNdww2kXrvV5UWWUkIFkg/bkmhEdHDXH4wEhg
+mZD7hEE9AuXZiWpKU+pxbhcCM15WSnDFNbBAPxkCgYEAh+ZF4whnePyWJoZ/ZKr2
+ptdVgsGTukliD5K+O+6ij/Aik6sc0SPBMoAW8pegkeijb2Ycl1NTZX90hBz4zz1p
+kkhxmD7MeI1ksf3ZAJBQzgW1Fku6yyVgHQIJbn1URLSd+i6tPjcZHf7iGVMpErsM
+2BPzUi3R7JqWNMNurHJywSECgYEArIZEfaz+zi2bmj9n/Fl2EwWGN8Ywfc9EJ/eu
+aE35cN7UnqJmerGlBZhFeZqYpng34PoJC0KCK6BQBdkjZtjgsoeG8pSe19ZIOsuX
+2UyZiGCebCTScewo9eg4mK9u/vyPQ6UYW0TSilXZe41/6x14SCs7xXr2HOOhZwZn
+7w0g/5kCgYEA4Rzqy967fhbDhaIRFoRpK+HveS/3gxJ7EfYk+TX0+CAejOAkehO/
+FSn5GDjpNkDO2BBMrSq8fTvNDWU8IT+jMp6eIUS23yTio4Sm7MHTaNHfFfchEZjo
+7xr3x31lGzSBvnkXG5S3eUL2iEq9q+kRRWPRoRTKyepwj6Vft4jqH04=
+-----END RSA PRIVATE KEY-----" > /etc/pki/tls/private/hello-world.key
+chmod 600 /etc/pki/tls/private/hello-world.key /etc/pki/tls/certs/hello-world.crt
+sed -i 's/localhost/hello-world/g' /etc/httpd/conf.d/ssl.conf 
+echo "RewriteEngine On
+RewriteRule ^(.*)$ https://%{HTTP_HOST} [R=301,L]" >> /etc/httpd/conf/httpd.conf
+systemctl restart httpd
