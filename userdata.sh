@@ -65,3 +65,4 @@ sed -i 's/localhost/hello-world/g' /etc/httpd/conf.d/ssl.conf
 echo "RewriteEngine On
 RewriteRule ^(.*)$ https://%{HTTP_HOST} [R=301,L]" >> /etc/httpd/conf/httpd.conf
 systemctl restart httpd
+
