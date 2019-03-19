@@ -224,7 +224,7 @@ resource "aws_route_table_association" "hello-world2" {
 resource "aws_default_security_group" "hello-world" {
   vpc_id = "${aws_vpc.hello-world.id}"
 
-  # SSH access from anywhere
+  # SSH access from within the network
   ingress {
     from_port   = 22
     to_port     = 22
