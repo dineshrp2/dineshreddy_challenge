@@ -10,5 +10,5 @@ Main.tf has all the code to create the infrastructure and start the instances wh
 
 
 1. Give your access-key and secret-key for the AWS account you would like to use in the “terraform.tfvars” file and save the file.
-2. RUN “terraform apply” command to run the script.
+2. RUN “terraform apply” command to run the script and enter the key name when prompted.
 3. Access the web page directly using the elastic load balanacer's dns name displayed after the successful execution
