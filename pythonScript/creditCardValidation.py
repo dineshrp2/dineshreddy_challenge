@@ -30,3 +30,4 @@ s=int(input())
 for i in range(0,s):
     n=input()
     checkcc(n)
+    
